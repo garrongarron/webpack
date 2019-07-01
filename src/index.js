@@ -1,1 +1,3 @@
-console.log(`Hello world`);
+import { name } from  './person.js'
+
+console.log(`Hello ${name}`);
