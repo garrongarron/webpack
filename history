@@ -5,3 +5,4 @@
 5  npm install extract-text-webpack-plugin --save-dev
 6  npm install style-loader css-loader --save-dev
 7  npm install extract-text-webpack-plugin@next -D
+8  npm install node-sass sass-loader -D
