@@ -7,3 +7,4 @@
 7  npm install extract-text-webpack-plugin@next -D
 8  npm install node-sass sass-loader -D
 9  npm install html-webpack-plugin -D
+10 npm install clean-webpack-plugin -D

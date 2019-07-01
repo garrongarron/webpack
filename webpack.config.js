@@ -1,6 +1,7 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   mode: "production",
@@ -38,6 +39,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin('dist', {}),
     new ExtractTextPlugin({ filename: 'style.[chunkhash].css'}),
     new HtmlWebpackPlugin({
       inject: false,
