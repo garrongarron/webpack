@@ -5,7 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   mode: "production",
-  entry: { main: './src/index.js'},
+  entry: { main: './src/index.js' },
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[chunkhash].js",
@@ -23,7 +23,7 @@ module.exports = {
         use: {
           loader: "babel-loader"
         }
-      },{
+      }, {
         test: /\.scss?$/,
         include: [
           path.resolve(__dirname, "src")
@@ -35,12 +35,24 @@ module.exports = {
           fallback: 'style-loader',
           use: ['css-loader', 'sass-loader']
         })
-      }
+      }, {
+        test: /\.(glb|gltf)$/i,
+        use:[
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'pepe/',
+              publicPath: '/'
+            }
+          }
+        ],
+      },
     ]
   },
   plugins: [
     new CleanWebpackPlugin('dist', {}),
-    new ExtractTextPlugin({ filename: 'style.[chunkhash].css'}),
+    new ExtractTextPlugin({ filename: 'style.[chunkhash].css' }),
     new HtmlWebpackPlugin({
       inject: false,
       hash: true,
